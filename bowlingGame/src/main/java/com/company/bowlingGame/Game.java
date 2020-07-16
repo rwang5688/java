@@ -1,32 +1,47 @@
-package com.company.bowlingGame;
+package com.company.bowlinggame;
 
+/**
+ * Bowling game.
+ */
 public class Game {
-    private int rolls_[];
-    private int currentRoll_;
 
-    // initialize class variables
+    private static final int NUM_FRAMES = 10;
+    private static final int MAX_NUM_ROLLS = 21;
+    private static final int NUM_PINS_IN_STRIKE = 10;
+
+    private int[] rolls;
+    private int currentRoll;
+
+    /**
+     * Initialize Game.
+     */
     public Game() {
-        rolls_ = new int[21];
-        for (int i = 0; i < 21; i++)
-            rolls_[i] = 0;
-        currentRoll_ = 0;
+        rolls = new int[MAX_NUM_ROLLS];
+        for (int i = 0; i < MAX_NUM_ROLLS; i++) {
+            rolls[i] = 0;
+        }
+        currentRoll = 0;
     }
 
-    // accumulate  score
-    public void roll(int pins) {
-        rolls_[currentRoll_++] += pins;
+    /**
+     * Store num pins in each roll.
+     */
+    public void roll(final int pins) {
+        rolls[currentRoll++] += pins;
     }
 
-    // return score
+    /**
+     * Calculate score.
+     */
     public int score() {
         int score = 0;
         int rollIndex = 0;
-        for (int frameIndex = 0; frameIndex < 10; frameIndex++) {
+        for (int frameIndex = 0; frameIndex < NUM_FRAMES; frameIndex++) {
             if (isStrike(rollIndex)) {
-                score += 10 + strikeBonus(rollIndex);
+                score += NUM_PINS_IN_STRIKE + strikeBonus(rollIndex);
                 rollIndex += 1;
             } else if (isSpare(rollIndex)) {
-                score += 10 + spareBonus(rollIndex);
+                score += NUM_PINS_IN_STRIKE + spareBonus(rollIndex);
                 rollIndex += 2;
             } else {
                 score += sumOfBallsInFrame(rollIndex);
@@ -36,24 +51,42 @@ public class Game {
         return score;
     }
 
-    // game rules
-    private boolean isStrike(int rollIndex) {
-        return rolls_[rollIndex] == 10;
+    /**
+     * Check is strike.
+     */
+    private boolean isStrike(final int rollIndex) {
+        return rolls[rollIndex] == NUM_PINS_IN_STRIKE;
     }
 
-    private int strikeBonus(int rollIndex) {
-        return rolls_[rollIndex+1] + rolls_[rollIndex+2];
+    /**
+     * Strike rule.
+     */
+    private int strikeBonus(final int rollIndex) {
+        return rolls[rollIndex + 1] + rolls[rollIndex + 2];
     }
 
-    private boolean isSpare(int rollIndex) {
-        return rolls_[rollIndex] + rolls_[rollIndex+1] == 10;
+    /**
+     * Check is spare.
+     * @param rollIndex
+     * @return
+     */
+    private boolean isSpare(final int rollIndex) {
+        return rolls[rollIndex] + rolls[rollIndex + 1] == NUM_PINS_IN_STRIKE;
     }
 
-    private int spareBonus(int rollIndex) {
-        return rolls_[rollIndex+2];
+    /**
+     * Spare rule.
+     * @param rollIndex
+     * @return
+     */
+    private int spareBonus(final int rollIndex) {
+        return rolls[rollIndex + 2];
     }
 
-    private int sumOfBallsInFrame(int rollIndex) {
-        return rolls_[rollIndex] + rolls_[rollIndex+1];
+    /**
+     * Sum balls in frame.
+     */
+    private int sumOfBallsInFrame(final int rollIndex) {
+        return rolls[rollIndex] + rolls[rollIndex + 1];
     }
 }
