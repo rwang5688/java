@@ -39,17 +39,17 @@ public final class App {
         }
 
         // print header
-        System.out.print("List : [ ");
+        System.out.print("List : ");
 
         // print contents
         ListNode node = head;
         while (node != null) {
-            System.out.print(node.getVal() + " ");
+            System.out.print(node.getVal() + "->");
             node = node.getNext();
         }
 
         // print trailer
-        System.out.println("]");
+        System.out.println("");
     }
 
     /**
@@ -59,17 +59,23 @@ public final class App {
     public static void main(String[] args) {
         System.out.println("Linked List demonstrations.");
 
-        // initialize
-        ListNode head = App.createList(NUM_NODES);
-        App.printList(head);
-
-        // delete the NUM_NODES-1 node
-        ListNode node = head;
-        for (int i = 1; i < NUM_NODES - 1; i++) {
+        // delete the NUM_NODES - 2 th node
+        System.out.println("ListUtils.deleteNode:");
+        ListNode head1 = App.createList(NUM_NODES);
+        App.printList(head1);
+        ListNode node = head1;
+        for (int i = 0; i < NUM_NODES - 2; i++) {
             node = node.getNext();
         }
         System.out.println("Deleting node: " + node.getVal());
         ListUtils.deleteNode(node);
-        App.printList(head);
+        App.printList(head1);
+
+        // remove the NUM_NODES - 2 th node
+        System.out.println("ListUtils.removeNthFromEnd:");
+        ListNode head2 = App.createList(NUM_NODES);
+        App.printList(head2);
+        head2 = ListUtils.removeNthFromEnd(head2, NUM_NODES);
+        App.printList(head2);
     }
 }
