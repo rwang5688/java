@@ -1,7 +1,7 @@
 package com.companyname.quicksort;
 
 /**
- * QuickSort class.
+ * QuickSort algorithm.
  */
 public class QuickSort {
     /**
@@ -14,7 +14,7 @@ public class QuickSort {
     public int[] quickSort(int[] numbers, int lo, int hi) {
         // debugging
         QuickSort.printContext(numbers, lo, hi);
-        // given subset, find pivot and sort elements recursively
+        // use number at "hi" as pivot, find pivot position, and sort remaining subsets
         if (lo < hi) {
             int partitionBorder = partition(numbers, lo, hi);
             quickSort(numbers, lo, partitionBorder - 1);
@@ -24,17 +24,17 @@ public class QuickSort {
     }
 
     /**
-     * partition - use number at "hi" as pivot, partition and return pivot position.
+     * partition - use number at "hi" as pivot, create subsets, and return pivot position.
      * @param numbers
      * @param lo
      * @param hi
      * @return
      */
     private int partition(int[] numbers, int lo, int hi) {
-        // select number at hi to be pivot
+        // use number at "hi" as pivot
         int pivot = numbers[hi];
         int i = lo - 1; // initialize index of smaller element
-        //starting at lo, swap and fill w elements that are smaller than pivot
+        // starting at lo, swap elements that are smaller than pivot to left of pivot
         for (int j = lo; j < hi; j++) {
             if (numbers[j] < pivot) {
                 i++;
@@ -43,7 +43,7 @@ public class QuickSort {
                 numbers[j] = temp;
             }
         }
-        // move element occupying pivot position (guarantee > pivot) to hi
+        // swap element occupying pivot position (guarantee > pivot) to "hi"
         numbers[hi] = numbers[i + 1];
         numbers[i + 1] = pivot;
         return i + 1;

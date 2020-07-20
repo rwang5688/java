@@ -8,7 +8,7 @@ public final class App {
     }
 
     /**
-     * Says hello to the world.
+     * Run Quick Sort app.
      * @param args The arguments of the program.
      */
     public static void main(String[] args) {
