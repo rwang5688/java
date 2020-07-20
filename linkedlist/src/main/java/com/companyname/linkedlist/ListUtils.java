@@ -58,4 +58,35 @@ public final class ListUtils {
         prev.setNext(next);
         return head;
     }
+
+    /**
+     * reverseList - reverse the linked list in place.
+     * @param head
+     * @return new head
+     */
+    public static ListNode reverseList(ListNode head) {
+        // if 0 or 1 item list, return head
+        if ((head == null) || (head.getNext() == null)) {
+            return head;
+        }
+
+        // we have at least two nodes
+        // flip next to point at prev
+        ListNode prev = null;
+        ListNode current = head;
+        ListNode next = current.getNext();
+        while (current != null) {
+            // reset current's next
+            current.setNext(prev);
+            // advance iterators
+            prev = current;
+            current = next;
+            if (next != null) {
+                next = next.getNext();
+            }
+        }
+
+        // the last prev is the new head
+        return prev;
+    }
 }

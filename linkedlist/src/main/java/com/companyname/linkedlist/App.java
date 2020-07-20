@@ -71,11 +71,18 @@ public final class App {
         ListUtils.deleteNode(node);
         App.printList(head1);
 
-        // remove the NUM_NODES - 2 th node
+        // remove 0th node
         System.out.println("ListUtils.removeNthFromEnd:");
         ListNode head2 = App.createList(NUM_NODES);
         App.printList(head2);
         head2 = ListUtils.removeNthFromEnd(head2, NUM_NODES);
         App.printList(head2);
+
+        // reverse list
+        System.out.println("ListUtils.reverseList:");
+        ListNode head3 = App.createList(NUM_NODES);
+        App.printList(head3);
+        head3 = ListUtils.reverseList(head3);
+        App.printList(head3);
     }
 }
