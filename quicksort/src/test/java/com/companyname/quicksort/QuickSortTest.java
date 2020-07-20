@@ -8,6 +8,9 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
  * Unit test for simple App.
  */
 class QuickSortTest {
+    /**
+     * Sort array with 5 items.
+     */
     @Test
     public void test_quickSort5Items() {
         final int[] numbers = {13, 12, 14, 6, 7};
@@ -17,6 +20,9 @@ class QuickSortTest {
         assertArrayEquals(expected, numbers);
     }
 
+    /**
+     * Sort array with 10 items.
+     */
     @Test
     public void test_quickSort10Items() {
         final int[] numbers = {7, 9, 1, 4, 9, 12, 4, 13, -2, 9};
