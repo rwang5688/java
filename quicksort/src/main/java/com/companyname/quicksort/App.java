@@ -1,18 +1,18 @@
 package com.companyname.quicksort;
 
 /**
- * Hello world!
+ * Hello Quick Sort!
  */
 public final class App {
     private App() {
     }
 
     /**
-     * Run Quick Sort app.
+     * Say hello to Quick Sort.
      * @param args The arguments of the program.
      */
     public static void main(String[] args) {
-        System.out.println("App: Quick Sort");
+        System.out.println("Hello Quick Sort!");
         final int[] numbers = {13, 12, 14, 6, 7};
         QuickSort qs = new QuickSort();
         qs.quickSort(numbers, 0, numbers.length - 1);

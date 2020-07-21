@@ -1,7 +1,7 @@
 package com.companyname.linkedlist;
 
 /**
- * Linked List app.
+ * Hello Linked List!
  */
 public final class App {
     private static final int NUM_NODES = 5;
@@ -53,11 +53,11 @@ public final class App {
     }
 
     /**
-     * Demonstrate Linked List functions.
+     * Say hello to Linked List.
      * @param args The arguments of the program.
      */
     public static void main(String[] args) {
-        System.out.println("Linked List demonstrations.");
+        System.out.println("Hello Linked List!");
 
         // delete the NUM_NODES - 2 th node
         System.out.println("ListUtils.deleteNode:");
