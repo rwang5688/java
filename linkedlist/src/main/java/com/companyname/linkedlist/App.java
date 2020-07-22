@@ -60,7 +60,7 @@ public final class App {
         System.out.println("Hello Linked List!");
 
         // delete the NUM_NODES - 2 th node
-        System.out.println("ListUtils.deleteNode:");
+        System.out.println("deleteNode:");
         ListNode head1 = createList(NUM_NODES);
         printList(head1);
         ListNode node = head1;
@@ -72,17 +72,26 @@ public final class App {
         printList(head1);
 
         // remove 0th node
-        System.out.println("ListUtils.removeNthFromEnd:");
+        System.out.println("removeNthFromEnd:");
         ListNode head2 = createList(NUM_NODES);
         printList(head2);
         head2 = ListUtils.removeNthFromEnd(head2, NUM_NODES);
         printList(head2);
 
         // reverse list
-        System.out.println("ListUtils.reverseList:");
+        System.out.println("reverseList:");
         ListNode head3 = createList(NUM_NODES);
         printList(head3);
         head3 = ListUtils.reverseList(head3);
         printList(head3);
+
+        // merge lists
+        System.out.println("mergeTwoLists:");
+        ListNode head4a = createList(NUM_NODES);
+        ListNode head4b = createList(NUM_NODES);
+        ListNode head4 = ListUtils.mergeTwoLists(head4a, head4b);
+        printList(head4a);
+        printList(head4b);
+        printList(head4);
     }
 }
