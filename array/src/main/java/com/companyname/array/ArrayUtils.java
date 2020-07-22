@@ -71,17 +71,22 @@ public final class ArrayUtils {
      * @return true if duplicate exists; false if not
      */
     public static boolean containsDuplicate(int[] nums) {
-        int length = nums.length;
         // fewer than 2 elements, no duplicates
+        int length = nums.length;
         if (length < 2) {
             return false;
         }
 
-        // sort array
-        Arrays.sort(nums);
+        // copy array and sort the copy
+        int[] copy = new int[nums.length];
+        for (int i = 0; i < nums.length; i++) {
+            copy[i] = nums[i];
+        }
+        Arrays.sort(copy);
+
         // if two consecutive entries are the same, found first duplicate
-        for (int i = 0; i < nums.length - 1; i++) {
-            if (nums[i] == nums[i + 1]) {
+        for (int i = 0; i < copy.length - 1; i++) {
+            if (copy[i] == copy[i + 1]) {
                 return true;
             }
         }

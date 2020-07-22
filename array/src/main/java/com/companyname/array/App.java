@@ -52,6 +52,7 @@ public final class App {
         int[] nums3 = {1, 1, 1, 3, 3, 4, 3, 2, 4, 2};
         printArray(nums3, nums3.length);
         boolean containsDuplicate = ArrayUtils.containsDuplicate(nums3);
+        printArray(nums3, nums3.length); // prove array remains the same
         System.out.println("containsDuplicate returns: " + containsDuplicate);
     }
 }
