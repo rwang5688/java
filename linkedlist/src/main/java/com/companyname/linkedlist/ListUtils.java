@@ -89,4 +89,48 @@ public final class ListUtils {
         // the last prev is the new head
         return prev;
     }
+
+    /**
+     * mergeTwoLists - merge two sorted lists.
+     * @param l1
+     * @param l2
+     * @return head of merged list
+     */
+    public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+        ListNode current1 = l1;
+        ListNode current2 = l2;
+        ListNode mergedList = null;
+        ListNode currentMerged = null;
+        ListNode newMerged = null;
+        while ((current1 != null) || (current2 != null)) {
+            if ((current1 != null) && (current2 != null)) {
+                if (current1.getVal() <= current2.getVal()) {
+                    newMerged = new ListNode(current1.getVal());
+                    current1 = current1.getNext();
+                } else {
+                    newMerged = new ListNode(current2.getVal());
+                    current2 = current2.getNext();
+                }
+            } else if (current1 != null) {
+                newMerged = new ListNode(current1.getVal());
+                current1 = current1.getNext();
+            } else if (current2 != null) {
+                newMerged = new ListNode(current2.getVal());
+                current2 = current2.getNext();
+            } else {
+                System.out.println("Should not reach here.");
+            }
+
+            if (mergedList == null) {
+                // set merged list head
+                mergedList = newMerged;
+                currentMerged = newMerged;
+            } else {
+                // advance merged list pointer
+                currentMerged.setNext(newMerged);
+                currentMerged = newMerged;
+            }
+        }
+        return mergedList;
+    }
 }
