@@ -86,5 +86,12 @@ public final class App {
         printTree(tree2);
         boolean isValidBST = TreeUtils.isValidBST(tree2);
         System.out.println("Tree is a valid binary search tree: " + isValidBST);
+
+        // isSymmetric
+        System.out.println("isSymmetric:");
+        TreeNode tree3 = createTree();
+        printTree(tree3);
+        boolean isSymmetric = TreeUtils.isSymmetric(tree3);
+        System.out.println("Tree is symmetric: " + isSymmetric);
     }
 }
