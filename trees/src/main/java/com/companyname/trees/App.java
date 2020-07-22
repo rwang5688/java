@@ -1,6 +1,6 @@
 package com.companyname.trees;
 
-import java.util.Stack;
+import java.util.LinkedList;
 
 /**
  * Hello Trees!
@@ -44,25 +44,21 @@ public final class App {
         }
 
         // print header
-        System.out.print("Tree (in DFS order) : [ ");
+        System.out.print("Tree (in BFS order) : [ ");
 
         // print contents
         TreeNode node = root;
-        Stack<TreeNode> stack = new Stack<TreeNode>();
-        while (node != null) {
-            System.out.print(node.getVal() + " ");
-            // visit new children
-            if (node.getRight() != null) {
-                stack.push(node.getRight());
-            }
-            if (node.getLeft() != null) {
-                stack.push(node.getLeft());
-            }
-            // get next
-            if (!stack.isEmpty()) {
-                node = stack.pop();
+        LinkedList<TreeNode> queue = new LinkedList<TreeNode>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            node = queue.remove();
+            if (node == null) {
+                System.out.print("null ");
             } else {
-                node = null;
+                System.out.print(node.getVal() + " ");
+                // visit children
+                queue.add(node.getLeft());
+                queue.add(node.getRight());
             }
         }
 
