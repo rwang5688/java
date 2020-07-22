@@ -61,28 +61,28 @@ public final class App {
 
         // delete the NUM_NODES - 2 th node
         System.out.println("ListUtils.deleteNode:");
-        ListNode head1 = App.createList(NUM_NODES);
-        App.printList(head1);
+        ListNode head1 = createList(NUM_NODES);
+        printList(head1);
         ListNode node = head1;
         for (int i = 0; i < NUM_NODES - 2; i++) {
             node = node.getNext();
         }
         System.out.println("Deleting node: " + node.getVal());
         ListUtils.deleteNode(node);
-        App.printList(head1);
+        printList(head1);
 
         // remove 0th node
         System.out.println("ListUtils.removeNthFromEnd:");
-        ListNode head2 = App.createList(NUM_NODES);
-        App.printList(head2);
+        ListNode head2 = createList(NUM_NODES);
+        printList(head2);
         head2 = ListUtils.removeNthFromEnd(head2, NUM_NODES);
-        App.printList(head2);
+        printList(head2);
 
         // reverse list
         System.out.println("ListUtils.reverseList:");
-        ListNode head3 = App.createList(NUM_NODES);
-        App.printList(head3);
+        ListNode head3 = createList(NUM_NODES);
+        printList(head3);
         head3 = ListUtils.reverseList(head3);
-        App.printList(head3);
+        printList(head3);
     }
 }
