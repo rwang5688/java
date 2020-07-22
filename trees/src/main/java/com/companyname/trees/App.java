@@ -74,9 +74,17 @@ public final class App {
         System.out.println("Hello Trees!");
 
         // max depth
+        System.out.println("maxDepth:");
         TreeNode tree1 = createTree();
         printTree(tree1);
         int maxDepth = TreeUtils.maxDepth(tree1);
         System.out.println("Tree's max depth: " + maxDepth);
+
+        // isValidBST
+        System.out.println("isValidBST:");
+        TreeNode tree2 = createTree();
+        printTree(tree2);
+        boolean isValidBST = TreeUtils.isValidBST(tree2);
+        System.out.println("Tree is a valid binary search tree: " + isValidBST);
     }
 }
