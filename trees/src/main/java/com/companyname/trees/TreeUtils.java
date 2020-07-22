@@ -94,4 +94,34 @@ public final class TreeUtils {
         // sub-trees are valid
         return true;
     }
+
+    /**
+     * isSymmetric - check if the tree is symmetric around root.
+     * @param root
+     * @return
+     */
+    public static boolean isSymmetric(TreeNode root) {
+        // check if tree is a mirror image of itself
+        return isMirror(root, root);
+    }
+
+    /**
+     * isMirror - check if the sub-trees are mirror images.
+     * @param t1
+     * @param t2
+     * @return
+     */
+    private static boolean isMirror(TreeNode t1, TreeNode t2) {
+        // leaf node
+        if (t1 == null && t2 == null) {
+            return true;
+        }
+        // missing one sub-tree
+        if (t1 == null || t2 == null) {
+            return false;
+        }
+        return (t1.getVal() == t2.getVal())
+            && isMirror(t1.getLeft(), t2.getRight())
+            && isMirror(t1.getRight(), t2.getLeft());
+    }
 }
